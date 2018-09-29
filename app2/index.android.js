@@ -2,22 +2,49 @@
 import React from 'react';
 import { 
   Text,
-  AppRegistry
+  AppRegistry,
+  View,
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 //Formatações
 const Estilos = {
-  estiloTexto: {
-    fontSize: 50
+  principal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  botao: {
+    backgroundColor: '#548530',
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    marginTop: 20
+  },
+  textoBotao: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 };
 
+const botaoPressionado = () => {
+
+}
+
 //Criar o componente
 const App = () => {
-  return(
-      <Text style={ Estilos.estiloTexto }>Frases do dia</Text>
+  const { principal, botao, textoBotao } = Estilos;
+
+  return (
+    <View style={principal}>
+      <Image source={require('./imgs/logo.png')} />
+      <TouchableOpacity style={botao}>
+        <Text style={textoBotao}>Nova Frase </Text>
+      </TouchableOpacity>
+    </View>
     );
-}
+};
 
 //Renderizar para o dispositivo;
 AppRegistry.registerComponent('app2', () => App);
