@@ -5,7 +5,8 @@ import {
   AppRegistry,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 //Formatações
@@ -28,9 +29,20 @@ const Estilos = {
   }
 };
 
-const botaoPressionado = () => {
+const gerarNovaFrase = () => {
+  var numeroAleatorio = Math.random();
+  numeroAleatorio = Math.floor(numeroAleatorio * 5);
+  
+  var frases = Array();
+  frases[0] = 'Estou sempre alegre. Essa é a melhor maneira de resolver os problemas da vida';
+  frases[1] = 'O tempo dura bastante para aqueles que sabem aproveitá-lo';
+  frases[2] = 'Se você encontrar um caminho sem obstáculos, ele provavelmente não leva a lugar nenhum';
+  frases[3] = 'Não existe um caminho para a felicidade. A felicidade é o caminho';
+  frases[4] = 'APP  criado no curso Desenvolvedor Multiplataforma Android/IOS com React & Redux';
 
-}
+  var fraseEscolhida = frases[numeroAleatorio];
+  Alert.alert(null,fraseEscolhida);
+};
 
 //Criar o componente
 const App = () => {
@@ -39,7 +51,9 @@ const App = () => {
   return (
     <View style={principal}>
       <Image source={require('./imgs/logo.png')} />
-      <TouchableOpacity style={botao}>
+      <TouchableOpacity 
+      onPress={gerarNovaFrase}
+      style={botao}>
         <Text style={textoBotao}>Nova Frase </Text>
       </TouchableOpacity>
     </View>
